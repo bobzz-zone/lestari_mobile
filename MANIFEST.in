@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include lestari_mobile *.css
+recursive-include lestari_mobile *.csv
+recursive-include lestari_mobile *.html
+recursive-include lestari_mobile *.ico
+recursive-include lestari_mobile *.js
+recursive-include lestari_mobile *.json
+recursive-include lestari_mobile *.md
+recursive-include lestari_mobile *.png
+recursive-include lestari_mobile *.py
+recursive-include lestari_mobile *.svg
+recursive-include lestari_mobile *.txt
+recursive-exclude lestari_mobile *.pyc
