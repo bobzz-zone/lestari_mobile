@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-12-27 08:54:12.047149",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "spok",
+  "waktu_mulai",
+  "waktu_selesai",
+  "durasi_section",
+  "jam",
+  "menit",
+  "detik",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "spok",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "SPOK",
+   "options": "SPOK",
+   "reqd": 1
+  },
+  {
+   "fieldname": "waktu_mulai",
+   "fieldtype": "Datetime",
+   "label": "Waktu mulai"
+  },
+  {
+   "fieldname": "waktu_selesai",
+   "fieldtype": "Datetime",
+   "label": "Waktu selesai"
+  },
+  {
+   "fieldname": "durasi_section",
+   "fieldtype": "Section Break",
+   "label": "Durasi"
+  },
+  {
+   "fieldname": "jam",
+   "fieldtype": "Int",
+   "label": "Jam"
+  },
+  {
+   "fieldname": "menit",
+   "fieldtype": "Int",
+   "label": "Menit"
+  },
+  {
+   "fieldname": "detik",
+   "fieldtype": "Int",
+   "label": "Detik"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Work Log",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-12-28 08:41:53.591773",
+ "modified_by": "Administrator",
+ "module": "Lestari Mobile",
+ "name": "Work Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

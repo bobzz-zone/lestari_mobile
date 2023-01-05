@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:no_spok",
+ "creation": "2022-12-27 08:52:41.521759",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "no_spok",
+  "barang_jadi",
+  "jumlah",
+  "berat",
+  "column_break_5",
+  "qr_image",
+  "qr_image_preview",
+  "qr_code_hash",
+  "perkiraan_waktu_selesai_section",
+  "jam",
+  "menit",
+  "detik"
+ ],
+ "fields": [
+  {
+   "fieldname": "no_spok",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "No SPOK",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "barang_jadi",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Barang Jadi",
+   "reqd": 1
+  },
+  {
+   "fieldname": "jumlah",
+   "fieldtype": "Float",
+   "label": "Jumlah"
+  },
+  {
+   "fieldname": "berat",
+   "fieldtype": "Float",
+   "label": "Berat"
+  },
+  {
+   "fieldname": "perkiraan_waktu_selesai_section",
+   "fieldtype": "Section Break",
+   "label": "Perkiraan waktu selesai"
+  },
+  {
+   "fieldname": "jam",
+   "fieldtype": "Int",
+   "label": "Jam"
+  },
+  {
+   "fieldname": "menit",
+   "fieldtype": "Int",
+   "label": "Menit"
+  },
+  {
+   "fieldname": "detik",
+   "fieldtype": "Int",
+   "label": "Detik"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qr_image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "QR Image"
+  },
+  {
+   "fieldname": "qr_image_preview",
+   "fieldtype": "Image",
+   "label": "QR Image Preview",
+   "options": "qr_image"
+  },
+  {
+   "fieldname": "qr_code_hash",
+   "fieldtype": "Data",
+   "label": "QR Code Hash",
+   "no_copy": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Work Log",
+   "link_doctype": "Work Log",
+   "link_fieldname": "spok"
+  }
+ ],
+ "modified": "2023-01-03 10:08:31.265337",
+ "modified_by": "Administrator",
+ "module": "Lestari Mobile",
+ "name": "SPOK",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
