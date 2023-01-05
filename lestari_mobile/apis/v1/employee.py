@@ -4,6 +4,8 @@ import json
 @frappe.whitelist()
 def login_by_id(employee_id):
     employee = frappe.get_value("Employee", employee_id)
+    if employee is None:
+        employee = frappe.get_value("Employee", {"id_employee": employee_id}, "name")
     if employee:
         doc = frappe.get_doc("Employee", employee)
         user = frappe.get_value("Employee", employee, "user_id")

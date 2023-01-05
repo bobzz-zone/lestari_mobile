@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "employee",
+  "employee_id",
   "employee_name",
   "qr_image",
   "qr_image_preview"
@@ -39,11 +40,18 @@
    "fieldtype": "Data",
    "label": "Employee Name",
    "read_only": 1
+  },
+  {
+   "fetch_from": "employee.id_employee",
+   "fieldname": "employee_id",
+   "fieldtype": "Data",
+   "label": "Employee ID",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-01-03 09:39:17.765665",
+ "modified": "2023-01-05 16:18:47.411579",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Hak Akses Employee",
