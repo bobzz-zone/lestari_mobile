@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:employee",
+ "autoname": "field:employee_id",
  "creation": "2023-01-03 09:36:58.576635",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -46,12 +46,13 @@
    "fieldname": "employee_id",
    "fieldtype": "Data",
    "label": "Employee ID",
-   "read_only": 1
+   "read_only": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-01-05 16:18:47.411579",
+ "modified": "2023-01-07 08:50:41.343067",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Hak Akses Employee",

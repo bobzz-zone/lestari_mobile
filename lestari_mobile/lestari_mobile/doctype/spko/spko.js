@@ -1,7 +1,7 @@
 // Copyright (c) 2022, DAS and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('SPOK', {
+frappe.ui.form.on('SPKO', {
 	// refresh: function(frm) {
 
 	// }

@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:WL-{#####}",
  "creation": "2022-12-27 08:54:12.047149",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "spok",
+  "spko",
   "employee",
   "employee_id",
   "waktu_mulai",
@@ -18,14 +19,6 @@
   "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "spok",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "SPOK",
-   "options": "SPOK",
-   "reqd": 1
-  },
   {
    "fieldname": "waktu_mulai",
    "fieldtype": "Datetime",
@@ -77,12 +70,20 @@
    "fieldtype": "Data",
    "label": "Employee ID",
    "read_only": 1
+  },
+  {
+   "fieldname": "spko",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "SPKO",
+   "options": "SPKO",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-05 16:20:36.569130",
+ "modified": "2023-01-07 09:02:31.906848",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Work Log",

@@ -1,13 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:no_spok",
+ "autoname": "field:no_spko",
  "creation": "2022-12-27 08:52:41.521759",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "no_spok",
+  "no_spko",
+  "item",
+  "item_name",
   "barang_jadi",
   "jumlah",
   "berat",
@@ -21,14 +23,6 @@
   "detik"
  ],
  "fields": [
-  {
-   "fieldname": "no_spok",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "No SPOK",
-   "reqd": 1,
-   "unique": 1
-  },
   {
    "fieldname": "barang_jadi",
    "fieldtype": "Data",
@@ -88,6 +82,28 @@
    "label": "QR Code Hash",
    "no_copy": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "no_spko",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "No SPKO",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -95,13 +111,13 @@
   {
    "group": "Work Log",
    "link_doctype": "Work Log",
-   "link_fieldname": "spok"
+   "link_fieldname": "spko"
   }
  ],
- "modified": "2023-01-03 10:08:31.265337",
+ "modified": "2023-01-07 09:29:11.418946",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
- "name": "SPOK",
+ "name": "SPKO",
  "owner": "Administrator",
  "permissions": [
   {

@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestSPOK(unittest.TestCase):
+class TestSPKO(unittest.TestCase):
 	pass

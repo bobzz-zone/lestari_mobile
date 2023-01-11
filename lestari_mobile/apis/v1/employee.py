@@ -15,7 +15,9 @@ def login_by_id(employee_id):
                 "doc": doc,
                 "token": token
             }
-    frappe.throw("Not found")
+        else:
+            frappe.throw("User ID Employee belum di set")
+    frappe.throw("Employee ID tidak ditemukan")
 
 @frappe.whitelist()
 def validate_token():

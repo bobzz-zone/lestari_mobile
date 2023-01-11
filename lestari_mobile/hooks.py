@@ -59,6 +59,8 @@ app_license = "DAS"
 # before_install = "lestari_mobile.install.before_install"
 # after_install = "lestari_mobile.install.after_install"
 
+after_migrate = "lestari_mobile.patch.spko_changes.execute"
+
 # Uninstallation
 # ------------
 

@@ -5,7 +5,7 @@ import frappe
 from frappe.model.document import Document
 import hashlib
 
-class SPOK(Document):
+class SPKO(Document):
 	def after_insert(self):
 		code = hashlib.md5(self.name.encode()).hexdigest()
 		from lestari_mobile.qr_code.generate_qr import execute
