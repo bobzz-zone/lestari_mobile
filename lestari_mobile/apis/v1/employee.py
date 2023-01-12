@@ -1,5 +1,7 @@
 import frappe
 import json
+import hashlib
+
 
 @frappe.whitelist()
 def login_by_id(employee_id):
@@ -16,7 +18,21 @@ def login_by_id(employee_id):
                 "token": token
             }
         else:
-            frappe.throw("User ID Employee belum di set")
+            user_doc = frappe.new_doc("User")
+            user_doc.update({
+                "email": "{}@mail.com".format(hashlib.md5(doc.name.encode()).hexdigest()),
+                "first_name": doc.first_name,
+                "last_name": doc.last_name,
+                "send_welcome_email": 0
+            })
+            user_doc.insert()
+            doc.user_id = user_doc.name
+            doc.save()
+            token = generate_token(user_doc.name)
+            return {
+                "doc": doc,
+                "token": token
+            }
     frappe.throw("Employee ID tidak ditemukan")
 
 @frappe.whitelist()
