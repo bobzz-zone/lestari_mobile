@@ -10,6 +10,7 @@
   "spko",
   "employee",
   "employee_id",
+  "employee_name",
   "waktu_mulai",
   "waktu_selesai",
   "durasi_section",
@@ -78,12 +79,19 @@
    "label": "SPKO",
    "options": "SPKO",
    "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-07 09:02:31.906848",
+ "modified": "2023-01-12 14:34:39.975105",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Work Log",
