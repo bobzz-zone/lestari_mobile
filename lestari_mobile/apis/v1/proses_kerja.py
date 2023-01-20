@@ -6,9 +6,9 @@ def get():
     data = []
     if employee:
         workstation = frappe.get_value("Employee", employee, "workstation")
-        data = frappe.get_list("Operation",fields=["*"], filters=[["workstation","=", workstation]])    
+        data = frappe.get_all("Operation",fields=["*"], filters=[["workstation","=", workstation]],order_by="index_operation asc")    
     else:
-        data = frappe.get_list("Operation",fields=["*"])
+        data = frappe.get_list("Operation",fields=["*"],order_by="index_operation asc")
     results = []
     for item in data:
         item['proses_kerja'] = item['name']
