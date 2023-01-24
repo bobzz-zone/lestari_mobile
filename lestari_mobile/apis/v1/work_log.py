@@ -5,22 +5,22 @@ def get(spok_name):
     return frappe.get_all("Work Log",fields=["*"],filters=[["spko","=",spok_name],['docstatus','=',1]],order_by="modified desc")
 
 @frappe.whitelist()
-def start(spok_name):
+def start(spok_name, batch_work_log=None):
     #check employee
     employee = frappe.get_value("Employee", {"user_id": frappe.session.user}, "name")
 
     #check existing
     exist = frappe.get_value("Work Log", {"spko": spok_name, "docstatus": 0},"name")
     if exist:
-        frappe.throw("Tidak bisa start, karena sedang ada yang berjalan")
+        frappe.throw("Tidak bisa start, karena SPKO {} sedang ada yang berjalan".format(spok_name))
     doc = frappe.new_doc("Work Log")
     doc.update({
         "employee": employee,
         "spko": spok_name,
+        "batch_work_log": batch_work_log,
         "waktu_mulai": frappe.utils.now()
     })
     doc.insert(ignore_permissions=True)
-    frappe.db.commit()
     return doc
 
 
@@ -43,7 +43,6 @@ def batch_start(spok_names):
         "waktu_mulai": frappe.utils.now()
     })
     doc.insert(ignore_permissions=True)
-    frappe.db.commit()
     return doc
 
 @frappe.whitelist()
@@ -54,7 +53,6 @@ def stop(work_log):
         "docstatus": 1
     })
     doc.save(ignore_permissions=True)
-    frappe.db.commit()
     return doc
 
 @frappe.whitelist()
@@ -65,5 +63,4 @@ def batch_stop(batch_work_log):
         "docstatus": 1
     })
     doc.save(ignore_permissions=True)
-    frappe.db.commit()
     return doc

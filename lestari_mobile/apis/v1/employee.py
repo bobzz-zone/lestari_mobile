@@ -23,7 +23,8 @@ def login_by_id(employee_id):
                 "email": "{}@mail.com".format(hashlib.md5(doc.name.encode()).hexdigest()),
                 "first_name": doc.first_name,
                 "last_name": doc.last_name,
-                "send_welcome_email": 0
+                "send_welcome_email": 0,
+                "user_type": "User App"
             })
             user_doc.insert()
             doc.user_id = user_doc.name

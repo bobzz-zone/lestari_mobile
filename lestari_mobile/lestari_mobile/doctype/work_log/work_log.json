@@ -7,6 +7,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "batch_work_log",
   "spko",
   "employee",
   "employee_id",
@@ -86,12 +87,18 @@
    "fieldtype": "Data",
    "label": "Employee Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "batch_work_log",
+   "fieldtype": "Link",
+   "label": "Batch Work Log",
+   "options": "Batch Work Log"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-12 14:34:39.975105",
+ "modified": "2023-01-23 13:19:50.301854",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Work Log",
