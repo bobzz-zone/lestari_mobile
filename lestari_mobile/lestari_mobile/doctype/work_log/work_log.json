@@ -7,8 +7,11 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "resume_from",
+  "is_pause",
   "batch_work_log",
   "spko",
+  "operation",
   "employee",
   "employee_id",
   "employee_name",
@@ -18,6 +21,10 @@
   "jam",
   "menit",
   "detik",
+  "akumulasi_waktu_section",
+  "jam_akumulasi",
+  "menit_akumulasi",
+  "detik_akumulasi",
   "amended_from"
  ],
  "fields": [
@@ -93,18 +100,60 @@
    "fieldtype": "Link",
    "label": "Batch Work Log",
    "options": "Batch Work Log"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_pause",
+   "fieldtype": "Check",
+   "label": "Is Pause"
+  },
+  {
+   "fieldname": "resume_from",
+   "fieldtype": "Link",
+   "label": "Resume from",
+   "options": "Work Log"
+  },
+  {
+   "fieldname": "akumulasi_waktu_section",
+   "fieldtype": "Section Break",
+   "label": "Akumulasi Waktu"
+  },
+  {
+   "fieldname": "jam_akumulasi",
+   "fieldtype": "Int",
+   "label": "Jam Akumulasi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "menit_akumulasi",
+   "fieldtype": "Int",
+   "label": "Menit Akumulasi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "detik_akumulasi",
+   "fieldtype": "Int",
+   "label": "Detik Akumulasi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation",
+   "fieldtype": "Link",
+   "label": "Operation",
+   "options": "Operation"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-23 13:19:50.301854",
+ "modified": "2023-01-28 14:10:39.274941",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Work Log",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -114,9 +163,11 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -126,6 +177,7 @@
    "report": 1,
    "role": "Employee",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

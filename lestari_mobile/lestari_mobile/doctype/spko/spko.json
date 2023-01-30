@@ -7,6 +7,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "status",
   "no_spko",
   "item",
   "item_name",
@@ -20,7 +21,11 @@
   "perkiraan_waktu_selesai_section",
   "jam",
   "menit",
-  "detik"
+  "detik",
+  "akumulasi_waktu_section",
+  "jam_akumulasi",
+  "menit_akumulasi",
+  "detik_akumulasi"
  ],
  "fields": [
   {
@@ -104,6 +109,37 @@
    "fieldtype": "Data",
    "label": "Item Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nClosed"
+  },
+  {
+   "fieldname": "akumulasi_waktu_section",
+   "fieldtype": "Section Break",
+   "label": "Akumulasi Waktu"
+  },
+  {
+   "fieldname": "jam_akumulasi",
+   "fieldtype": "Int",
+   "label": "Jam Akumulasi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "menit_akumulasi",
+   "fieldtype": "Int",
+   "label": "Menit Akumulasi",
+   "read_only": 1
+  },
+  {
+   "fieldname": "detik_akumulasi",
+   "fieldtype": "Int",
+   "label": "Detik Akumulasi",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -114,7 +150,7 @@
    "link_fieldname": "spko"
   }
  ],
- "modified": "2023-01-07 09:29:11.418946",
+ "modified": "2023-01-28 10:30:30.301303",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "SPKO",
