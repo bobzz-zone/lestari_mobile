@@ -32,18 +32,23 @@ class BatchWorkLog(Document):
 			value = frappe.get_value("SPKO", spko)
 			if value:
 				from lestari_mobile.apis.v1.work_log import start
-				start(spko, self.name)
+				start(spko, self.name, self.waktu_mulai, self.operation)
 
 
 	def stop_work_log(self):
 		spkos = self.spkos.strip().split("\n")
 		for spko in spkos:
 			value = frappe.get_value("SPKO", spko)
-			if value:
+			if value and self.is_pause == 0:
 				from lestari_mobile.apis.v1.work_log import stop
 				work_log = frappe.get_all("Work Log", filters=[["spko","=",spko]], order_by="creation desc")
 				if len(work_log) > 0:
-					stop(work_log[0]['name'])
+					stop(work_log[0]['name'], self.waktu_selesai)
+			elif value and self.is_pause == 1:
+				from lestari_mobile.apis.v1.work_log import pause
+				work_log = frappe.get_all("Work Log", filters=[["spko","=",spko]], order_by="creation desc")
+				if len(work_log) > 0:
+					pause(work_log[0]['name'], self.waktu_selesai)
 		pass
 	
 	def delete_work_log(self):

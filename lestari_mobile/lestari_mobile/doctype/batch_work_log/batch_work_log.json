@@ -8,6 +8,8 @@
  "engine": "InnoDB",
  "field_order": [
   "spkos",
+  "is_pause",
+  "operation",
   "employee",
   "employee_id",
   "employee_name",
@@ -85,6 +87,18 @@
    "options": "Batch Work Log",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_pause",
+   "fieldtype": "Check",
+   "label": "Is Pause"
+  },
+  {
+   "fieldname": "operation",
+   "fieldtype": "Link",
+   "label": "Operation",
+   "options": "Operation"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -95,7 +109,7 @@
    "link_fieldname": "batch_work_log"
   }
  ],
- "modified": "2023-01-23 13:20:08.329726",
+ "modified": "2023-01-30 17:04:26.212215",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Batch Work Log",

@@ -55,7 +55,9 @@ def resume(work_log, batch_work_log=None, resume_time=None):
 
 
 @frappe.whitelist()
-def batch_start(spok_names):
+def batch_start(spok_names, start_time=None, operation=None):
+    if start_time is None:
+        start_time = frappe.utils.now()
     spkos = spok_names.split("<>")
     #check employee
     employee = frappe.get_value("Employee", {"user_id": frappe.session.user}, "name")
@@ -69,8 +71,9 @@ def batch_start(spok_names):
     doc = frappe.new_doc("Batch Work Log")
     doc.update({
         "employee": employee,
+        "operation": operation,
         "spkos": spok_names.replace("<>", "\n"),
-        "waktu_mulai": frappe.utils.now()
+        "waktu_mulai": start_time
     })
     doc.insert(ignore_permissions=True)
     return doc
@@ -103,11 +106,27 @@ def stop(work_log, stop_time=None):
     spko_doc.save()
     return doc
 
+
 @frappe.whitelist()
-def batch_stop(batch_work_log):
+def batch_pause(batch_work_log, pause_time=None):
+    if pause_time is None:
+        pause_time = frappe.utils.now()
     doc = frappe.get_doc("Batch Work Log", batch_work_log)
     doc.update({
-        "waktu_selesai": frappe.utils.now(),
+        "waktu_selesai": pause_time,
+        "docstatus": 1,
+        "is_pause": 1
+    })
+    doc.save(ignore_permissions=True)
+    return doc
+
+@frappe.whitelist()
+def batch_stop(batch_work_log, stop_time=None):
+    if stop_time is None:
+        stop_time = frappe.utils.now()
+    doc = frappe.get_doc("Batch Work Log", batch_work_log)
+    doc.update({
+        "waktu_selesai": stop_time,
         "docstatus": 1
     })
     doc.save(ignore_permissions=True)
