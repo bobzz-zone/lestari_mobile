@@ -25,7 +25,8 @@
   "jam_akumulasi",
   "menit_akumulasi",
   "detik_akumulasi",
-  "amended_from"
+  "amended_from",
+  "uuid"
  ],
  "fields": [
   {
@@ -141,12 +142,18 @@
    "fieldtype": "Link",
    "label": "Operation",
    "options": "Operation"
+  },
+  {
+   "fieldname": "uuid",
+   "fieldtype": "Data",
+   "label": "UUID",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-28 14:10:39.274941",
+ "modified": "2023-02-06 13:51:32.147386",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Work Log",
