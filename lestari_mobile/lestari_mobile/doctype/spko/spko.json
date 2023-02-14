@@ -9,6 +9,7 @@
  "field_order": [
   "status",
   "no_spko",
+  "employee_id",
   "item",
   "item_name",
   "barang_jadi",
@@ -143,6 +144,11 @@
    "label": "Detik Akumulasi",
    "no_copy": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Int",
+   "label": "Employee ID"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -153,7 +159,7 @@
    "link_fieldname": "spko"
   }
  ],
- "modified": "2023-01-30 17:42:42.461273",
+ "modified": "2023-02-10 14:22:25.337047",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "SPKO",

@@ -17,6 +17,9 @@
   "employee_name",
   "waktu_mulai",
   "waktu_selesai",
+  "column_break_11",
+  "keterangan_pause",
+  "reason",
   "durasi_section",
   "jam",
   "menit",
@@ -148,12 +151,27 @@
    "fieldtype": "Data",
    "label": "UUID",
    "unique": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "keterangan_pause",
+   "fieldtype": "Data",
+   "label": "Keterangan Pause",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-06 13:51:32.147386",
+ "modified": "2023-02-14 13:31:18.594999",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Work Log",
