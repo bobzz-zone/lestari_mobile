@@ -47,7 +47,7 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
     }
 
     doctype = 'SPKO'
-    filters = get_filters(doctype, array_last_modifieds[2], employee_id, None, None, SPKO_DAYS_BEFORE)
+    filters = get_filters(doctype, array_last_modifieds[2], None, None, None, SPKO_DAYS_BEFORE)
     spkos = frappe.get_all(doctype, filters=filters, pluck="name")
     total_data = len(spkos)
     
@@ -57,7 +57,7 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
     }
 
     doctype = 'Work Log'
-    filters = get_filters(doctype, array_last_modifieds[3], employee_id, None, spkos)
+    filters = get_filters(doctype, array_last_modifieds[3], None, None, spkos)
     total_data = frappe.db.count(doctype, filters=filters)
     
     worklog = {
@@ -83,10 +83,12 @@ def download(doctype, last_modified, employee_id,page,limit_page_length=100):
     
     if doctype == "SPKO":
         days_before = SPKO_DAYS_BEFORE
+        employee_id = None
     else:
         days_before = None
     if doctype == "Work Log":
-        spkos = frappe.get_all("SPKO", filters=get_filters("SPKO", last_modified, employee_id, None, None, SPKO_DAYS_BEFORE), pluck="name")
+        spkos = frappe.get_all("SPKO", filters=get_filters("SPKO", last_modified, None, None, None, SPKO_DAYS_BEFORE), pluck="name")
+        employee_id = None
     else:
         spkos = None
     filters = get_filters(doctype, last_modified, employee_id, workstation, spkos, days_before)
