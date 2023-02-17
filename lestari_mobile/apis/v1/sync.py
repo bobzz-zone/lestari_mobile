@@ -17,7 +17,7 @@ def get_filters(doctype, last_modified, employee_id=None, workstation=None, spko
             filters["spko"] = ["in", spkos]
     if creation_day is not None:
         today_before = add_to_date(datetime.now(), days=creation_day)
-        filters['creation'] = [">=", str(today_before)]
+        filters['creation'] = [">=", str(today_before).split(" ")[0]]
     return filters
     
 
