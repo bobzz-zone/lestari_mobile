@@ -23,6 +23,7 @@ def get_filters(doctype, last_modified, employee_id=None, workstation=None, spko
 
 @frappe.whitelist()
 def meta(last_modifieds, employee_id, limit_page_length=100):
+    limit_page_length = frappe.get_single("Sync Settings").per_page
     array_last_modifieds = last_modifieds.split(',')
     doctype = 'Keterangan Pause'
     filters = get_filters(doctype, array_last_modifieds[0])
@@ -73,6 +74,7 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
 
 @frappe.whitelist()
 def download(doctype, last_modified, employee_id,page,limit_page_length=100):
+    limit_page_length = frappe.get_single("Sync Settings").per_page
     if doctype == "Keterangan Pause":
         employee_id = None
     if doctype == "Operation":
