@@ -98,5 +98,4 @@ def download(doctype, last_modified, employee_id,page,limit_page_length=100):
     order_by = "name asc"
     if doctype == "Operation":
         order_by = "index_operation asc"
-    return limit_page_length
     return frappe.get_all(doctype, filters=filters, fields=["*"], order_by=order_by,limit_page_length=int(limit_page_length),limit_start=int(page) * int(limit_page_length))
