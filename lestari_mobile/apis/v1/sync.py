@@ -51,7 +51,7 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
     filters = get_filters(doctype, array_last_modifieds[2], None, None, None, SPKO_DAYS_BEFORE)
     spkos = frappe.get_all(doctype, filters=filters, pluck="name")
     total_data = len(spkos)
-    
+    print(filters)
     spko = {
         "total_page": math.ceil(total_data / limit_page_length),
         "total_data": total_data
