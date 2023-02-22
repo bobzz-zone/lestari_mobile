@@ -73,7 +73,7 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
     }
 
 @frappe.whitelist()
-def download(doctype, last_modified, employee_id,page,limit_page_length=100):
+def download(doctype, last_modified, employee_id,page,limit_page_length=100, is_indexing=False):
     limit_page_length = frappe.get_single("Sync Settings").per_page
     if doctype == "Keterangan Pause":
         employee_id = None
@@ -98,4 +98,17 @@ def download(doctype, last_modified, employee_id,page,limit_page_length=100):
     order_by = "name asc"
     if doctype == "Operation":
         order_by = "index_operation asc"
-    return frappe.get_all(doctype, filters=filters, fields=["*"], order_by=order_by,limit_page_length=int(limit_page_length),limit_start=int(page) * int(limit_page_length))
+    
+
+    result = frappe.get_all(doctype, filters=filters, fields=["*"], order_by=order_by,limit_page_length=int(limit_page_length),limit_start=int(page) * int(limit_page_length))
+    if is_indexing == "" or is_indexing == False or is_indexing is None or is_indexing == "null":
+        return result
+    else:
+        last_modified = frappe.utils.now()
+        if (len(result) > 0):
+            last_modified = result[-1]["modified"]
+        return {
+            "data": result,
+            "total_data": len(result),
+            "last_modified": last_modified
+        }
