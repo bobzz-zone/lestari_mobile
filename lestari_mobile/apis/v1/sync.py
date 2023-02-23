@@ -3,7 +3,7 @@ import math
 from frappe.utils import add_to_date
 from datetime import datetime
 
-SPKO_DAYS_BEFORE = -3
+SPKO_DAYS_BEFORE = -7
 
 def get_filters(doctype, last_modified, employee_id=None, workstation=None, spkos=None, creation_day=None):
     filters = {}
@@ -29,9 +29,10 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
     filters = get_filters(doctype, array_last_modifieds[0])
     
     total_data = frappe.db.count(doctype, filters=filters)
+    filters["modified"] = [">=", "1970-01-01"]
     keterangan_pause = {
         "total_page": math.ceil(total_data / limit_page_length),
-        "total_data": total_data
+        "total_data": frappe.db.count(doctype, filters=filters)
     }
 
     doctype = 'Operation'
@@ -41,14 +42,14 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
         total_data = frappe.db.count(doctype, filters=filters)
     else:
         total_data = 0
-    
+    filters["modified"] = [">=", "1970-01-01"]
     operation = {
         "total_page": math.ceil(total_data / limit_page_length),
-        "total_data": total_data
+        "total_data": frappe.db.count(doctype, filters=filters)
     }
 
     doctype = 'SPKO'
-    filters = get_filters(doctype, array_last_modifieds[2], None, None, None, SPKO_DAYS_BEFORE)
+    filters = get_filters(doctype, "1970-01-01", None, None, None, SPKO_DAYS_BEFORE)
     spkos = frappe.get_all(doctype, filters=filters, pluck="name")
     total_data = len(spkos)
     print(filters)
@@ -58,7 +59,7 @@ def meta(last_modifieds, employee_id, limit_page_length=100):
     }
 
     doctype = 'Work Log'
-    filters = get_filters(doctype, array_last_modifieds[3], None, None, spkos)
+    filters = get_filters(doctype, "1970-01-01", None, None, spkos)
     total_data = frappe.db.count(doctype, filters=filters)
     
     worklog = {
@@ -89,12 +90,14 @@ def download(doctype, last_modified, employee_id,page,limit_page_length=100, is_
     else:
         days_before = None
     if doctype == "Work Log":
-        spkos = frappe.get_all("SPKO", filters=get_filters("SPKO", last_modified, None, None, None, SPKO_DAYS_BEFORE), pluck="name")
+        spkos = frappe.get_all("SPKO", filters=get_filters("SPKO", "1970-01-01", None, None, None, SPKO_DAYS_BEFORE), pluck="name")
         employee_id = None
+        days_before = None
+        last_modified = "1970-01-01"
     else:
         spkos = None
     filters = get_filters(doctype, last_modified, employee_id, workstation, spkos, days_before)
-
+    print(filters)
     order_by = "name asc"
     if doctype == "Operation":
         order_by = "index_operation asc"
