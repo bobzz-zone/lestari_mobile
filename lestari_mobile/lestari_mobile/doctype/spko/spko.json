@@ -9,6 +9,7 @@
  "field_order": [
   "status",
   "no_spko",
+  "workstation",
   "employee_id",
   "item",
   "item_name",
@@ -149,6 +150,13 @@
    "fieldname": "employee_id",
    "fieldtype": "Int",
    "label": "Employee ID"
+  },
+  {
+   "fieldname": "workstation",
+   "fieldtype": "Link",
+   "label": "Workstation",
+   "options": "Workstation",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -159,7 +167,7 @@
    "link_fieldname": "spko"
   }
  ],
- "modified": "2023-02-10 14:22:25.337047",
+ "modified": "2023-03-07 14:37:57.187459",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "SPKO",
