@@ -13,6 +13,7 @@ class WorkLog(Document):
 				self.jam = int(diff_in_seconds / 3600)
 				self.menit = int(diff_in_seconds % 3600 / 60)
 				self.detik = int(diff_in_seconds % 3600 % 60)
+				self.total_detik = int(diff_in_seconds)
 		# if self.resume_from is not None:
 		# 	resume_from_doc = frappe.get_doc("Work Log", self.resume_from)
 		# 	diff_in_seconds = (resume_from_doc.jam_akumulasi * 3600) + (self.jam * 3600) + (resume_from_doc.menit_akumulasi * 60) + (self.menit * 60) + (resume_from_doc.detik_akumulasi) + (self.detik)
