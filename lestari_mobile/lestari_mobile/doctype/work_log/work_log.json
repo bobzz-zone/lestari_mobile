@@ -182,11 +182,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
-// <<<<<<< HEAD
-//  "modified": "2023-03-28 16:01:22.312524",
-// =======
-//  "modified": "2023-03-30 11:05:47.266304",
-// >>>>>>> baaca73825f7940290124a72fef5d102300cdfd4
+ "modified": "2023-03-30 11:05:47.266304",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "Work Log",
