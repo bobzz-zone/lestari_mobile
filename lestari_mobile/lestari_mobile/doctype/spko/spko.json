@@ -27,7 +27,13 @@
   "akumulasi_waktu_section",
   "jam_akumulasi",
   "menit_akumulasi",
-  "detik_akumulasi"
+  "detik_akumulasi",
+  "cycle_time_section",
+  "validdate",
+  "cycletime",
+  "column_break_25",
+  "totalsecond",
+  "percent"
  ],
  "fields": [
   {
@@ -157,6 +163,35 @@
    "label": "Workstation",
    "options": "Workstation",
    "reqd": 1
+  },
+  {
+   "fieldname": "cycle_time_section",
+   "fieldtype": "Section Break",
+   "label": "Cycle Time"
+  },
+  {
+   "fieldname": "validdate",
+   "fieldtype": "Date",
+   "label": "ValidDate"
+  },
+  {
+   "fieldname": "cycletime",
+   "fieldtype": "Int",
+   "label": "CycleTime"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "totalsecond",
+   "fieldtype": "Int",
+   "label": "TotalSecond"
+  },
+  {
+   "fieldname": "percent",
+   "fieldtype": "Float",
+   "label": "Percent"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -167,7 +202,7 @@
    "link_fieldname": "spko"
   }
  ],
- "modified": "2023-03-07 14:37:57.187459",
+ "modified": "2023-04-03 12:09:04.156553",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "SPKO",
