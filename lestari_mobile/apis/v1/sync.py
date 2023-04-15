@@ -3,7 +3,7 @@ import math
 from frappe.utils import add_to_date
 from datetime import datetime
 
-SPKO_DAYS_BEFORE = -90
+SPKO_DAYS_BEFORE = -7
 
 def get_filters(doctype, last_modified, employee_id=None, workstation=None, spkos=None, creation_day=None):
     filters = {}
