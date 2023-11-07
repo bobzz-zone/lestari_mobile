@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Apps",
  "links": [],
- "modified": "2023-04-06 16:22:31.373721",
+ "modified": "2023-06-23 14:22:59.206328",
  "modified_by": "arikba@lms.com",
  "module": "Lestari Mobile",
  "name": "Apps",
@@ -26,6 +26,12 @@
    "label": "Dashboard Work-log Performance",
    "link_to": "Work-Log",
    "type": "Dashboard"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "Dashboard Detail Worklog",
+   "link_to": "dashboard-metabase",
+   "type": "Page"
   }
  ]
 }

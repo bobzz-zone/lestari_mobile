@@ -15,6 +15,7 @@
   "item_name",
   "barang_jadi",
   "jumlah",
+  "jumlah_pcs",
   "berat",
   "column_break_5",
   "qr_image",
@@ -124,7 +125,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Open\nClosed"
+   "options": "Open\nClosed\nDone"
   },
   {
    "fieldname": "akumulasi_waktu_section",
@@ -192,6 +193,11 @@
    "fieldname": "percent",
    "fieldtype": "Float",
    "label": "Percent"
+  },
+  {
+   "fieldname": "jumlah_pcs",
+   "fieldtype": "Int",
+   "label": "Jumlah Pcs"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -202,7 +208,7 @@
    "link_fieldname": "spko"
   }
  ],
- "modified": "2023-04-03 12:09:04.156553",
+ "modified": "2023-10-20 12:54:05.069510",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "SPKO",

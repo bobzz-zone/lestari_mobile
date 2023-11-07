@@ -115,3 +115,72 @@ def download(doctype, last_modified, employee_id,page,limit_page_length=100, is_
             "total_data": len(result),
             "last_modified": last_modified
         }
+@frappe.whitelist()
+def setReturn(success, message, data, error):
+    data = {
+        "success":success,
+        "message":message,
+        "data":data,
+        "error":error
+    }
+    return data
+@frappe.whitelist()
+def DownloadWorklog(id_employee=None, creation=None):
+    if id_employee is None:
+        data_return = setReturn(False, "Id employee is required", None, None)
+        # return data_return as json with 400 status code in erpnext
+        frappe.local.response['http_status_code'] = 400
+        return data_return
+    if creation is None:
+        data_return = setReturn(False, "Creation is required", None, None)
+        # return data_return as json with 400 status code in erpnext
+        frappe.local.response['http_status_code'] = 400
+        return data_return
+
+    # get data worklog
+    worklogs = a = frappe.get_list("Work log Testing", filters={"employee_id":id_employee,"creation":[">",creation]})
+    worklog_datas = []
+    for item in worklogs:
+        worklog = frappe.get_doc("Work log Testing", item)
+        data = {
+            "name":worklog.name,
+            "operation":worklog.operation,
+            "is_batch":worklog.is_batch,
+            "employee":worklog.employee,
+            "employee_id":worklog.employee_id,
+            "employee_name":worklog.employee_name,
+            "waktu_mulai":worklog.waktu_mulai,
+            "waktu_selesai":worklog.waktu_selesai,
+            "total_rusak":worklog.total_rusak,
+            "total_detik":worklog.total_detik,
+            "total_detik_working":worklog.total_detik_working,
+            "total_detik_pause":worklog.total_detik_pause,
+            "uuid":worklog.uuid,
+            "upload_time":worklog.creation,
+            "list_pause":[],
+            "list_spko":[],
+            "total_pcs":worklog.total_pcs
+        }
+        for spko in worklog.list_spko:
+            data_spko = {
+                "spko":spko.spko,
+                "total_rusak":spko.total_rusak,
+                "qr_code_hash":frappe.get_value("SPKO",spko.spko,["qr_code_hash"])
+            }
+            data["list_spko"].append(data_spko)
+
+        for pause in worklog.list_pause:
+            data_pause = {
+                "start_pause":pause.start_pause,
+                "end_pause":pause.end_pause,
+                "keterangan_pause":pause.keterangan_pause,
+                "catatan":pause.catatan,
+                "total_seconds":pause.total_seconds
+            }
+            data["list_pause"].append(data_pause)
+
+        worklog_datas.append(data)
+    
+    data_return = setReturn(True, "Success", worklog_datas, None)
+    frappe.local.response['http_status_code'] = 200
+    return data_return
