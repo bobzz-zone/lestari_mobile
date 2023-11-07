@@ -17,7 +17,7 @@
   "jumlah",
   "jumlah_pcs",
   "berat",
-  "column_break_5",
+  "column_break_10",
   "qr_image",
   "qr_image_preview",
   "qr_code_hash",
@@ -73,10 +73,6 @@
    "fieldname": "detik",
    "fieldtype": "Int",
    "label": "Detik"
-  },
-  {
-   "fieldname": "column_break_5",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "qr_image",
@@ -198,6 +194,10 @@
    "fieldname": "jumlah_pcs",
    "fieldtype": "Int",
    "label": "Jumlah Pcs"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -208,7 +208,7 @@
    "link_fieldname": "spko"
   }
  ],
- "modified": "2023-10-20 12:54:05.069510",
+ "modified": "2023-11-07 16:44:31.044760",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "SPKO",
