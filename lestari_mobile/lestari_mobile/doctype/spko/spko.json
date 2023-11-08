@@ -34,7 +34,8 @@
   "cycletime",
   "column_break_25",
   "totalsecond",
-  "percent"
+  "percent",
+  "amended_from"
  ],
  "fields": [
   {
@@ -198,6 +199,15 @@
   {
    "fieldname": "column_break_10",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "SPKO",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -208,7 +218,7 @@
    "link_fieldname": "spko"
   }
  ],
- "modified": "2023-11-07 16:44:31.044760",
+ "modified": "2023-11-08 16:00:41.996951",
  "modified_by": "Administrator",
  "module": "Lestari Mobile",
  "name": "SPKO",
