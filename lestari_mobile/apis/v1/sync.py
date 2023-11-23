@@ -159,13 +159,17 @@ def DownloadWorklog(id_employee=None, creation=None):
             "upload_time":worklog.creation,
             "list_pause":[],
             "list_spko":[],
-            "total_pcs":worklog.total_pcs
+            "total_pcs":worklog.total_pcs,
+	    "washing_method":worklog.washing_method,
+	    "idle_reason":worklog.idle_reason,
         }
         for spko in worklog.list_spko:
             data_spko = {
                 "spko":spko.spko,
                 "total_rusak":spko.total_rusak,
-                "qr_code_hash":frappe.get_value("SPKO",spko.spko,["qr_code_hash"])
+                "qr_code_hash":frappe.get_value("SPKO",spko.spko,["qr_code_hash"]),
+                "item_name": frappe.get_value("SPKO",spko.spko,["barang_jadi"]),
+                "qty": frappe.get_value("SPKO",spko.spko,["jumlah_pcs"]),
             }
             data["list_spko"].append(data_spko)
 
